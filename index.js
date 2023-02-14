@@ -1,9 +1,6 @@
 const WebSocket = require("ws");
 
-const wss = new WebSocket.Server({ port: 3000 }, {
-    origin: "*",
-    methods: ["GET", "POST"]
-});
+const wss = new WebSocket.Server({ port: 3000 });
 
 wss.on("connection", ws => {
     console.log("Client connected to server");
