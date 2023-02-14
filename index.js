@@ -1,6 +1,9 @@
 const WebSocket = require("ws");
 
-const wss = new WebSocket.Server({ port: 7000 });
+const wss = new WebSocket.Server({ port: 3000 }, {
+    origin: "*",
+    methods: ["GET", "POST"]
+});
 
 wss.on("connection", ws => {
     console.log("Client connected to server");
@@ -10,3 +13,5 @@ wss.on("connection", ws => {
     });
     ws.send("Hello! Message from server. You've just connected to the server!!");
 });
+
+
